@@ -19,7 +19,7 @@ module.exports.insert = function(collection, record) {
 module.exports.get = function(collection) {
   return MongoClient.connect(mongoUrl)
     .then(function(db) {
-      return db.collection(collection).find({}).toArray()
+      return db.collection(collection).find().toArray()
         .then(function(docs){
           db.close();
           return docs;
